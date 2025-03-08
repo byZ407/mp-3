@@ -7,16 +7,16 @@ const StyledOutput = styled.h3<{ isNegative: boolean }>`
     color: ${({ isNegative }) => outputColor(isNegative)};
 `;
 
-interface OutputProps {
-    result: string;
-}
-
 function outputColor(isNegative: boolean) {
     if(isNegative) {
         return 'red';
     } else{
         return '#303030';
     }
+}
+
+interface OutputProps {
+    result: string;
 }
 
 export default function Output({ result }: OutputProps) {

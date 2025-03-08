@@ -75,7 +75,7 @@ export default function Education(){
                     <SchoolLogo>
                         <img src="/campus.png" alt="Campus Middle School Logo" />
                     </SchoolLogo>
-                    <SchoolInfo className="school-info">
+                    <SchoolInfo>
                         <SchoolName>Campus Middle School</SchoolName>
                         <SchoolDetails>Greenwood Village, Colorado</SchoolDetails>
                         <SchoolDetails>2018-2019</SchoolDetails>

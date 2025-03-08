@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Calculator from './Calculator/Calculator';
 
-
 const ProjectsTitle = styled.h2`
   text-align: center;
   color: darkgoldenrod;
