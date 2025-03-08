@@ -24,6 +24,7 @@ const Input = styled.input`
   font-size: calc(12px + 0.5vw);
   border: 2px solid darkgoldenrod;
   text-align: center;
+    
   @media screen and (max-width: 1000px) {
     width: 50%;
   }
@@ -31,26 +32,18 @@ const Input = styled.input`
 
 interface InputBoxProps {
     num1: string;
-    setNum1: (value: string) => void;
     num2: string;
+    setNum1: (value: string) => void;
     setNum2: (value: string) => void;
 }
 
 export default function InputBox({ num1, setNum1, num2, setNum2 }: InputBoxProps) {
     return (
         <StyledInput>
-            <Label htmlFor="first-input">First Number:</Label>
-            <Input
-                type="text"
-                value={num1}
-                onChange={(e) => setNum1(e.target.value)}
-            />
-            <Label htmlFor="second-input">Second Number:</Label>
-            <Input
-                type="text"
-                value={num2}
-                onChange={(e) => setNum2(e.target.value)}
-            />
+            <Label>First Number:</Label>
+            <Input type="text" value={num1} onChange={(e) => setNum1(e.target.value)}/>
+            <Label>Second Number:</Label>
+            <Input type="text" value={num2} onChange={(e) => setNum2(e.target.value)}/>
         </StyledInput>
     );
 }

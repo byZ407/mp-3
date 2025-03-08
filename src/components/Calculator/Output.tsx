@@ -1,23 +1,26 @@
 import styled from 'styled-components';
 
-interface OutputTextProps {
-    isNegative: boolean;
-}
-
-const OutputText = styled.h3<OutputTextProps>`
+const StyledOutput = styled.h3<{ isNegative: boolean }>`
     text-align: center;
     font-family: 'Della Respira', serif;
     font-size: calc(15px + 1vw);
-    color: ${({ isNegative }) => (isNegative ? 'red' : '#303030')};
+    color: ${({ isNegative }) => outputColor(isNegative)};
 `;
 
 interface OutputProps {
     result: string;
 }
 
-export default function Output({ result }: OutputProps) {
-    const numberPart = result.replace('Result: ', '').trim();
-    const isNegative = !isNaN(Number(numberPart)) && Number(numberPart) < 0;
+function outputColor(isNegative: boolean) {
+    if(isNegative) {
+        return 'red';
+    } else{
+        return '#303030';
+    }
+}
 
-    return <OutputText id="output" isNegative={isNegative}>{result}</OutputText>;
+export default function Output({ result }: OutputProps) {
+    const resultNum = Number(result.replace('Result: ', ''));
+    const isNegative = resultNum < 0;
+    return <StyledOutput isNegative={isNegative}>{result}</StyledOutput>;
 }
