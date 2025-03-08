@@ -1,5 +1,6 @@
-import { createBrowserRouter, Routes, Route, RouterProvider} from 'react-router-dom';
+import { createBrowserRouter, Routes, Route, RouterProvider, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { useEffect } from 'react';
 
 import Header from "./components/Header";
 import Nav from "./components/Nav";
@@ -49,6 +50,18 @@ const StyledContainer = styled.div`
 `;
 
 function Root(){
+
+    const currentPath = useLocation().pathname;
+    let lastValue = currentPath.split('/').pop() || "";
+    lastValue = lastValue.charAt(0).toUpperCase() + lastValue.slice(1) || "Home";
+    useEffect(() => {
+        if (lastValue === "Home" || lastValue === "") {
+            document.title = "Home | Resume";
+        } else {
+            document.title = `${lastValue} | Resume`;
+        }
+    }, [lastValue]);
+
     return(
             <StyledPage>
                 <Header />
